@@ -37,7 +37,7 @@ export default function Cart() {
                   <img
                     src={item.image}
                     alt={item.name}
-                   className="w-75 w-lg-50"
+                    style={{ width: "300px" }}
                   />
 
                   <div className="ms-3 flex-grow-1">
