@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Artymithra/static/css/main.e8d77f23.css",
-    "main.js": "/Artymithra/static/js/main.6423e342.js",
+    "main.js": "/Artymithra/static/js/main.9558f474.js",
     "static/js/453.12383195.chunk.js": "/Artymithra/static/js/453.12383195.chunk.js",
     "static/media/HeaderBanner.png": "/Artymithra/static/media/HeaderBanner.a83c0005236bc031b607.png",
     "static/media/Offerbanner.jpg": "/Artymithra/static/media/Offerbanner.5d693e2d4597c86c7681.jpg",
@@ -58,11 +58,11 @@
     "static/media/Logo.png": "/Artymithra/static/media/Logo.cf77e35791f8240b1f6f.png",
     "index.html": "/Artymithra/index.html",
     "main.e8d77f23.css.map": "/Artymithra/static/css/main.e8d77f23.css.map",
-    "main.6423e342.js.map": "/Artymithra/static/js/main.6423e342.js.map",
+    "main.9558f474.js.map": "/Artymithra/static/js/main.9558f474.js.map",
     "453.12383195.chunk.js.map": "/Artymithra/static/js/453.12383195.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e8d77f23.css",
-    "static/js/main.6423e342.js"
+    "static/js/main.9558f474.js"
   ]
 }
