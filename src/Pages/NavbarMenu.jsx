@@ -21,7 +21,8 @@ export default function NavbarMenu() {
     >
       <div className="container-fluid">
         {/* LOGO → ALWAYS LEFT */}
-        <Navbar.Brand className="d-flex align-items-center">
+        <Navbar.Brand  as={NavLink}
+  to="/" className="d-flex align-items-center">
           <img src={Logo} alt="Logo" className="Logo" />
         </Navbar.Brand>
 
