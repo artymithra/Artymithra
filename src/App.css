@@ -1,38 +1,253 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  transition: all 0.3s ease-in-out;
+}
+.Logo{
+  width: 100%;
+  height: 60px;
+}
+.Navbarmenutext{
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: white;
+}
+.Homebannerbgcolor{
+  background-color: #498BCC;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Homebannertext1{
+ color: white; 
+font-weight: 700;
+font-size: 47px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Homebannertext2{
+ color: white; 
+font-size: 22px;
+}
+.Learnmorebutton {
+  width: 90%;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 25px;
+  color: white;
+  font-size: 28px;
+  transition: all 0.3s ease;
+}
+.Artbutton {
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 28px;
+  transition: all 0.3s ease;
+}
+.Owndesignsection{
+  width:100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 0px;
+  border-radius: 25px;
+  color: white;
+}
+.Owndesigntext{
+  color: white;
+  font-size: 30px;
+}
+.Clicknowbutton {
+  width: 55%;
+  background-color: white;
+  border: 1px solid rgba(31, 112, 192, 1);
+  border-radius: 25px;
+  color: rgba(31, 112, 192, 1);
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.Selectdesignbutton {
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(31, 112, 192, 1);
+  border-radius: 25px;
+  color: rgba(31, 112, 192, 1);
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.Learnmorebutton:hover {
+  background-color: white;
+  color: rgba(31, 112, 192, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.Artbutton:hover {
+  background-color: white;
+  color: rgba(31, 112, 192, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.Clicknowbutton:hover {
+  transform: translateY(-3px);
+color: white;
+    background-color: transparent;
+  border: 1px solid white;
+}
+
+.Selectdesignbutton:hover {
+  background-color: rgba(31, 112, 192, 1);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.card {
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.Bannerimage {
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.Bannerimage:hover {
+  transform: translateY(-3px);
+}
+
+.Bannerimage img {
+  transition: transform 0.4s ease;
+}
+
+.Bannerimage:hover img {
+  transform: scale(1.01);
+}
+.Easiesttext{
+  font-size: 24px;
+}
+
+.Navbarmenutext {
+  display: inline-block;          
+  color: #fff !important;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Remove default bootstrap hover bg */
+.Navbarmenutext:hover,
+.Navbarmenutext:focus {
+  background-color: transparent !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+/* Underline animation */
+.Navbarmenutext::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.Navbarmenutext:hover::after {
+  width: 100%;
+  left: 0;
+}
+.Footertextcolor{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Footersubdesigncolor{
+  background-color: #dbd8d8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Thumbnail box */
+.thumb-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.thumb-box img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Active thumbnail */
+.thumb-box.active {
+  border: 2px solid #000;
+}
+
+/* Thumbnail arrows */
+.thumb-arrow {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  padding: 0 6px;
+}
+
+.thumb-arrow:hover {
+  color: #333;
+}
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+  .thumb-box img {
+    width: 50px;
+    height: 50px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .thumb-arrow {
+    font-size: 40px;
   }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1; /* 🔥 THIS PUSHES FOOTER DOWN */
 }
