@@ -10,9 +10,7 @@ export default function Footer() {
       <div className="row p-5">
         <div className="col-12 col-lg-3 Footertextcolor">
           <p>
-            Printera - A platform for your all gardening needs. Gardens have
-            been an indispensable part of our homes, more so now, ever than
-            before.
+            ArtyMithra - A platform for your all art needs. Stunning art works and elegant products with art work designs available.
           </p>
         </div>
 
@@ -78,11 +76,10 @@ export default function Footer() {
       <div className="row Footersubdesigncolor p-3">
         <div className="col-12 col-lg-6 ">
           <div className="ms-lg-4">
-            <p className="m-0 p-0 ">Copyright - 2025. All rights Reserved</p>
-            <p className="fw-bold m-0 p-0">Powered by @alabnagurum</p>
+            <p className="m-0 p-0 ">Copyright - 2026. All Rights Reserved</p>
           </div>
         </div>
-        <div className="col-12 col-lg-6 d-flex justify-content-end align-items-lg-center">
+        <div className="col-12 col-lg-6 d-flex justify-content-start justify-content-lg-end align-items-lg-center mt-3 mt-lg-0">
           <div className="d-flex gap-5">
             <img src={instagram} alt="Instagram" />
             <img src={whatsapp} alt="WhatsApp" />
