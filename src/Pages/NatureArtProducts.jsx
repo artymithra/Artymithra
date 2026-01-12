@@ -47,61 +47,7 @@ export default function NatureArtProducts() {
           </div>
         </div>
 
-        {/* CARDS */}
-        <div className="row justify-content-between mt-4">
-          <div className="col-12 col-lg-4 mb-4 ">
-            <Card className="border border-2 border-mutted">
-              <img src={Bottle} className="img-fluid" alt="Bottle Image" />
-              <Card.Body>
-                <h2>Bottle</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
-                <button
-                  className="Selectdesignbutton p-2"
-                  onClick={() => navigate("/nature-products/bottle")}
-                >
-                  {" "}
-                  Select Product
-                </button>
-              </Card.Body>
-            </Card>
-          </div>
-
-          <div className="col-12 col-lg-4 mb-4">
-            <Card className="border border-2 border-mutted">
-              <img src={Cap} className="img-fluid" alt="Cap Image" />
-              <Card.Body>
-                <h2>Cap</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
-                <button
-                  className="Selectdesignbutton p-2"
-                  onClick={() => navigate("/nature-products/cap")}
-                >
-                  Select Product
-                </button>
-              </Card.Body>
-            </Card>
-          </div>
-
-          <div className="col-12 col-lg-4 mb-4">
-            <Card className="border border-2 border-mutted">
-              <img
-                src={CoffeeCup}
-                className="img-fluid"
-                alt="Coffee Cup Image"
-              />
-              <Card.Body>
-                <h2>Coffee Cup</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
-                <button
-                  className="Selectdesignbutton p-2"
-                  onClick={() => navigate("/nature-products/cup")}
-                >
-                  Select Product
-                </button>
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
+     
 
         {/* CARDS */}
         <div className="row justify-content-between mt-4">

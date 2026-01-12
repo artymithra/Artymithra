@@ -15,7 +15,7 @@ export default function Cart() {
         <CheckoutBreadcrumbs />
 
         <div className="container">
-          <h3>Your cart is empty</h3>
+          <h3>Your cart is empty. Please add products before checkout.</h3>
         </div>
       </div>
     );

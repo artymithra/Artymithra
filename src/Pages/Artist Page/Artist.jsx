@@ -1,33 +1,68 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import HeaderBanner from "../Images/HeaderBanner.png";
-import About1 from "../Images/About1.png";
-import About2 from "../Images/About2.png";
-import About3 from "../Images/About3.png";
-import Art3 from "../Images/Art3.jpg";
-import Design1 from "../Images/Design1.jpg";
-import Design2 from "../Images/Design2.jpg";
-import Design3 from "../Images/Design3.jpg";
-import Design4 from "../Images/Design4.jpg";
-import Design5 from "../Images/Design5.jpg";
-import Design6 from "../Images/Design6.jpg";
+import HeaderBanner from "../../Images/HeaderBanner.png";
+import About1 from "../../Images/About1.png";
+import About2 from "../../Images/About2.png";
+import About3 from "../../Images/About3.png";
+import Art3 from "../../Images/Art3.jpg";
+import Design1 from "../../Images/Design1.jpg";
+import Design2 from "../../Images/Design2.jpg";
+import Design3 from "../../Images/Design3.jpg";
+import Design4 from "../../Images/Design4.jpg";
+import Design5 from "../../Images/Design5.jpg";
+import Design6 from "../../Images/Design6.jpg";
+import ZeroCost from "../../Images/ZeroCost.png";
 import { Modal, Form, Input, Tag, Button as AntButton, message } from "antd";
 import { InstagramOutlined } from "@ant-design/icons";
-
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import "../App.css";
-import Footer from "./Footer";
-import { useState } from "react";
+import "../../App.css";
+import Footer from "../Footer.jsx";
 
-export default function Home() {
+export default function Artists() {
   const navigate = useNavigate();
-  const [openArtistForm, setOpenArtistForm] = useState(false);
+  const [artistForm] = Form.useForm();
   const [submittingArtist, setSubmittingArtist] = useState(false);
-
-  const [artistHomeForm] = Form.useForm();
+  const [openArtistForm, setOpenArtistForm] = useState(false);
+  const [openArtistDetails, setOpenArtistDetails] = useState(false);
+  const [selectedArtist, setSelectedArtist] = useState(null);
   const GAS_URL =
     "https://script.google.com/macros/s/AKfycbxo59covQ7RZgwIbuSwitCaLl1dAO4MmSu5o-cih9ND-8PwP4AUqRbw6nt7WXc8530/exec";
+
+  const artistsList = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      title: "Abstract Painter",
+      image: Design1,
+      tags: ["Abstract", "Acrylic", "Contemporary"],
+      description:
+        "Sarah specializes in vibrant abstract paintings that explore color theory and emotional expression. Her work has been featured in galleries across Europe and North America.",
+      experience: "15 years",
+    },
+    {
+      id: 2,
+      name: "Rahul Verma",
+      title: "Digital Artist",
+      image: Design2,
+      tags: ["Digital Art", "Portraits"],
+      description:
+        "Rahul creates stunning digital portraits blending realism with modern aesthetics.",
+      experience: "10 years",
+    },
+    {
+      id: 3,
+      name: "Ananya Patel",
+      title: "Traditional Indian Artist",
+      image: Design3,
+      tags: ["Madhubani", "Warli"],
+      description:
+        "Ananya preserves traditional Indian art forms through intricate hand-painted works.",
+      experience: "12 years",
+    },
+  ];
+
   const submitArtistDetails = async (values) => {
     if (submittingArtist) return;
 
@@ -52,11 +87,11 @@ export default function Home() {
       const result = await response.json();
 
       if (result.success) {
-        message.success({
-          content: "Artist details submitted successfully!",
-          duration: 3,
-        });
-        artistHomeForm.resetFields();
+     message.success({
+        content: "Artist details submitted successfully!",
+        duration: 3,
+      });
+            artistForm.resetFields();
         setOpenArtistForm(false);
       } else {
         alert("Error: " + result.error);
@@ -68,6 +103,7 @@ export default function Home() {
       setSubmittingArtist(false);
     }
   };
+
   const styl = `
 .ant-modal .ant-modal-close {
     position: absolute;
@@ -97,50 +133,25 @@ export default function Home() {
 `;
   return (
     <>
-      {" "}
       <style> {styl}</style>
       <div className="container-fluid m-0 p-0 ">
         <div className="container-fluid Homebannerbgcolor rounded-bottom-5">
           <div className="container">
             <div className="row  pt-3">
               {/* LEFT CONTENT */}
-              <div className="col-12 col-lg-6 mt-3 mt-lg-0">
+              <div className="col-12 col-lg-6 mt-3 mt-lg-5">
                 <div className="row">
                   <div className="col-12">
-                    <p className="Homebannertext1">
-                      Artimitra, the commercial friend of every artist
-                    </p>
+                    <p className="Homebannertext1">Meet Our Featured Artists</p>
                     <p className="Homebannertext2">
-                      Explore our unique collection of digital art created by
-                      talented artists worldwide.
+                      Discover talented creators from across the globe, each
+                      sharing their vision through extraordinary craft and
+                      design.
                     </p>
-                  </div>
-
-                  {/* BUTTONS */}
-                  <div className="col-12 d-lg-flex mt-4">
-                    <div className="col-12 col-lg-6 d-flex justify-content-center">
-                      <button className="Learnmorebutton p-1">
-                        Learn More
-                      </button>
-                    </div>
-
-                    <div className="col-12 col-lg-6 d-flex justify-content-center mt-4 mt-lg-0">
-                      <button className="Artbutton p-2">Add Art</button>
-                    </div>
                   </div>
 
                   {/* OWN DESIGN SECTION */}
-                  {/* <div className="col-11 Owndesignsection mt-4 p-3 p-lg-5">
-                  <div className="col-12 text-center">
-                    <p className="Owndesigntext">Create Your Own Design</p>
-                  </div>
-
-                  <div className="col-12 d-flex justify-content-center">
-                    <button className="Clicknowbutton p-2">Click Now</button>
-                  </div>
-                </div> */}
-
-                  <div className="col-11 Owndesignsection mt-4 p-3 p-lg-5 mb-5">
+                  <div className="col-11 Owndesignsection mt-4 p-3 p-lg-5">
                     <div className="col-12 ">
                       <p className="Owndesigntext">
                         Put up your art, set your own price, and sell your
@@ -171,127 +182,107 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <div className="container mt-5">
           {/* TITLE */}
           <div className="row">
             <div className="col-12 text-lg-center">
-              <h1>Best Selling Artworks</h1>
+              <h1>Our Featured Artists</h1>
               <p className="Easiesttext">
-                Easiest way to healthy life by buying your favorite plants
+                Discover talented artists and their stunning creations
               </p>
             </div>
           </div>
 
           {/* CARDS */}
           <div className="row justify-content-between mt-4">
-            <div className="col-12 col-lg-4 mb-4">
-              <Card>
-                <img src={Design1} className="img-fluid" alt="Art 3 Image" />
-                <Card.Body>
-                  <h2>Lion Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
-                  <button
-                    className="Selectdesignbutton p-2"
-                    onClick={() => navigate("/lion-products")}
-                  >
-                    {" "}
-                    Select Product
-                  </button>
-                </Card.Body>
-              </Card>
-            </div>
+            {artistsList.map((artist) => (
+              <div key={artist.id} className="col-12 col-lg-4 mb-4">
+                <Card>
+                  <img
+                    src={artist.image}
+                    className="img-fluid"
+                    alt={artist.name}
+                  />
+                  <Card.Body>
+                    <h2>{artist.name}</h2>
 
-            <div className="col-12 col-lg-4 mb-4">
-              <Card>
-                <img src={Design2} className="img-fluid" alt="Art 3 Image" />
-                <Card.Body>
-                  <h2>Girl Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
-                  <button
-                    className="Selectdesignbutton p-2"
-                    onClick={() => navigate("/girl-products")}
-                  >
-                    Select Product
-                  </button>
-                </Card.Body>
-              </Card>
-            </div>
+                    <Card.Text>
+                      {artist.tags.map((tag, index) => (
+                        <Tag
+                          key={index}
+                          color="purple"
+                          className="me-2 mb-2"
+                          style={{ fontSize: "14px", padding: "1px" }}
+                        >
+                          {tag}
+                        </Tag>
+                      ))}
+                    </Card.Text>
 
-            <div className="col-12 col-lg-4 mb-4">
-              <Card>
-                <img src={Design3} className="img-fluid" alt="Art 3 Image" />
-                <Card.Body>
-                  <h2>Flowing Doodles Art </h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
-                  <button
-                    className="Selectdesignbutton p-2"
-                    onClick={() => navigate("/flowing-products")}
-                  >
-                    Select Product
-                  </button>
-                </Card.Body>
-              </Card>
-            </div>
+                    <button
+                      className="Selectdesignbutton p-2"
+                      onClick={() => {
+                        setSelectedArtist(artist);
+                        setOpenArtistDetails(true);
+                      }}
+                    >
+                      View Details
+                    </button>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
           </div>
 
           {/* CARDS */}
           <div className="row justify-content-between mt-4">
-            <div className="col-12 col-lg-4 mb-4">
-              <Card>
-                <img src={Design4} className="img-fluid" alt="Art 3 Image" />
-                <Card.Body>
-                  <h2>Mickey Mouse Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
-                  <button
-                    className="Selectdesignbutton p-2"
-                    onClick={() => navigate("/mickeyMouse-products")}
-                  >
-                    Select Product
-                  </button>
-                </Card.Body>
-              </Card>
-            </div>
+            {artistsList.map((artist) => (
+              <div key={artist.id} className="col-12 col-lg-4 mb-4">
+                <Card>
+                  <img
+                    src={artist.image}
+                    className="img-fluid"
+                    alt={artist.name}
+                  />
+                  <Card.Body>
+                    <h2>{artist.name}</h2>
 
-            <div className="col-12 col-lg-4 mb-4">
-              <Card>
-                <img src={Design5} className="img-fluid" alt="Art 3 Image" />
-                <Card.Body>
-                  <h2>Nature Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
-                  <button
-                    className="Selectdesignbutton p-2"
-                    onClick={() => navigate("/nature-products")}
-                  >
-                    Select Product
-                  </button>
-                </Card.Body>
-              </Card>
-            </div>
+                    <Card.Text>
+                      {artist.tags.map((tag, index) => (
+                        <Tag
+                          key={index}
+                          color="purple"
+                          className="me-2 mb-2"
+                          style={{ fontSize: "14px" }}
+                        >
+                          {tag}
+                        </Tag>
+                      ))}
+                    </Card.Text>
 
-            <div className="col-12 col-lg-4 mb-4">
-              <Card>
-                <img src={Design6} className="img-fluid" alt="Art 3 Image" />
-                <Card.Body>
-                  <h2>Elegant Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
-                  <button
-                    className="Selectdesignbutton p-2"
-                    onClick={() => navigate("/elegant-products")}
-                  >
-                    Select Product
-                  </button>
-                </Card.Body>
-              </Card>
-            </div>
+                    <button
+                      className="Selectdesignbutton p-2"
+                      onClick={() => {
+                        setSelectedArtist(artist);
+                        setOpenArtistDetails(true);
+                      }}
+                    >
+                      View Details
+                    </button>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="container mt-5">
           <div className="row">
             <div className="col-12 text-lg-center">
-              <h1>About us</h1>
+              <h1>Why choose Artimitra?</h1>
               <p className="Easiesttext">
-                Order now and appreciate the beauty of nature
+                Your art deserves the right audience
               </p>
             </div>
 
@@ -300,15 +291,15 @@ export default function Home() {
               <div className="col-12 col-lg-4 mb-4">
                 <div className=" h-100 d-flex flex-column align-items-center text-center p-3">
                   <img
-                    src={About3}
+                    src={ZeroCost}
                     className="img-fluid mb-3"
                     alt="Assortment Image"
                     style={{ maxWidth: "80px" }}
                   />
-                  <h2>Large Assortment</h2>
+                  <h2>Zero Setup Cost</h2>
                   <p>
-                    We offer many different types of products with fewer
-                    variations in each category.
+                    Start selling your art without any upfront investment. We
+                    only succeed when your art sells.
                   </p>
                 </div>
               </div>
@@ -317,15 +308,16 @@ export default function Home() {
               <div className="col-12 col-lg-4 mb-4">
                 <div className="h-100 d-flex flex-column align-items-center text-center p-3">
                   <img
-                    src={About2}
+                    src={ZeroCost}
                     className="img-fluid mb-3"
                     alt="Assortment Image"
                     style={{ maxWidth: "80px" }}
                   />
-                  <h2>Fast & Free Shipping</h2>
+                  <h2>Hassle-Free Shipping</h2>
                   <p>
-                    4-day or less delivery time, free shipping and an expedited
-                    delivery option.
+                    Reach art lovers across India with ease. We take care of
+                    packaging, logistics, and safe delivery — so you can focus
+                    on creating.
                   </p>
                 </div>
               </div>
@@ -334,15 +326,15 @@ export default function Home() {
               <div className="col-12 col-lg-4 mb-4">
                 <div className=" h-100 d-flex flex-column align-items-center text-center p-3">
                   <img
-                    src={About1}
+                    src={ZeroCost}
                     className="img-fluid mb-3"
                     alt="Assortment Image"
                     style={{ maxWidth: "80px" }}
                   />
-                  <h2>24/7 Support</h2>
+                  <h2>Direct Payouts</h2>
                   <p>
-                    Answers to any business related inquiry 24/7 and in
-                    real-time.
+                    Get paid directly to your bank account. Transparent, secure,
+                    and regular payout schedules.
                   </p>
                 </div>
               </div>
@@ -355,7 +347,7 @@ export default function Home() {
             open={openArtistForm}
             onCancel={() => {
               setOpenArtistForm(false);
-              artistHomeForm.resetFields();
+              artistForm.resetFields();
             }}
             footer={null}
             zIndex={2000}
@@ -375,7 +367,7 @@ export default function Home() {
               </p>
 
               <Form
-                form={artistHomeForm}
+                form={artistForm}
                 layout="vertical"
                 onFinish={submitArtistDetails}
                 disabled={submittingArtist}
@@ -450,18 +442,79 @@ export default function Home() {
                   <AntButton
                     type="primary"
                     htmlType="submit"
-                    loading={submittingArtist}
-                                        disabled={submittingArtist}
-
                     block
                     size="large"
-                    className="artist-submit-btn"
+                    loading={submittingArtist}
+                    disabled={submittingArtist}
+                      className="artist-submit-btn"
+
+                 
                   >
                     {submittingArtist ? "Submitting..." : "Submit Application"}
                   </AntButton>
                 </Form.Item>
               </Form>
             </div>
+          </Modal>
+        </div>
+
+        <div className="mt-5">
+          <Modal
+            open={openArtistDetails}
+            onCancel={() => setOpenArtistDetails(false)}
+            footer={null}
+            width={900}
+            centered
+            zIndex={3000}
+          >
+            {selectedArtist && (
+              <div className="container-fluid">
+                <div className="row align-items-start">
+                  {/* LEFT IMAGE */}
+                  <div className="col-md-4 text-center">
+                    <img
+                      src={selectedArtist.image}
+                      alt={selectedArtist.name}
+                      className="img-fluid rounded-4"
+                    />
+                  </div>
+
+                  {/* RIGHT CONTENT */}
+                  <div className="col-md-8">
+                    <h2 className="fw-bold">{selectedArtist.name}</h2>
+                    <h5 className="text-primary mb-3">
+                      {selectedArtist.title}
+                    </h5>
+
+                    <div className="mb-3">
+                      {selectedArtist.tags.map((tag, index) => (
+                        <Tag key={index} color="purple" className="me-2">
+                          {tag}
+                        </Tag>
+                      ))}
+                    </div>
+
+                    <p className="text-muted">{selectedArtist.description}</p>
+
+                    <p className="fw-semibold">
+                      Experience: {selectedArtist.experience}
+                    </p>
+
+                    <hr />
+
+                    <h5 className="fw-semibold mb-3">
+                      Connect with the Artist
+                    </h5>
+
+                    <div className="d-flex gap-3 flex-wrap">
+                      <AntButton icon={<InstagramOutlined />}>
+                        Instagram
+                      </AntButton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </Modal>
         </div>
       </div>

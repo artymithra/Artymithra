@@ -21,8 +21,7 @@ export default function NavbarMenu() {
     >
       <div className="container-fluid">
         {/* LOGO → ALWAYS LEFT */}
-        <Navbar.Brand  as={NavLink}
-  to="/" className="d-flex align-items-center">
+        <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
           <img src={Logo} alt="Logo" className="Logo" />
         </Navbar.Brand>
 
@@ -40,11 +39,12 @@ export default function NavbarMenu() {
               <Nav.Link href="#about" className="Navbarmenutext">
                 About
               </Nav.Link>
-              <Nav.Link href="#artists" className="Navbarmenutext">
+              <Nav.Link
+                href="#artists"
+                className="Navbarmenutext"
+                onClick={() => navigate("/artists")}
+              >
                 Artists
-              </Nav.Link>
-              <Nav.Link href="#gallery" className="Navbarmenutext">
-                Gallery
               </Nav.Link>
             </Nav>
             <div

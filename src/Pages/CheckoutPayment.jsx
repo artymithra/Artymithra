@@ -27,14 +27,14 @@ export default function CheckoutPayment() {
 
           <div
             style={{
-              background: "#fff7e6",
+              background: "#B9976E",
               padding: "10px",
               borderRadius: "6px",
               marginBottom: "15px",
             }}
           >
-            <p style={{ margin: 0, fontSize: 14 }}>Pay Amount</p>
-            <h2 style={{ margin: 0, color: "#fa8c16" }}>
+            <p style={{ margin: 0, fontSize: 14, color:"#f5f4ef" }}>Pay Amount</p>
+            <h2 style={{ margin: 0, color: " #f5f4ef" }}>
               ₹{totalAmount}
             </h2>
           </div>

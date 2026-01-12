@@ -8,7 +8,7 @@ import CheckoutBreadcrumbs from "./CheckoutBreadcrumbs";
 const { Option } = Select;
 
 const GAS_URL =
-  "https://script.google.com/macros/s/AKfycbyrBoW0qQ1vMEog2ZZwNo-KJKkXCqsFTA3vUvpfxii2iXId8aQzEHI0uLth1zJNMs4U/exec";
+  "https://script.google.com/macros/s/AKfycbxo59covQ7RZgwIbuSwitCaLl1dAO4MmSu5o-cih9ND-8PwP4AUqRbw6nt7WXc8530/exec";
 
 export default function CheckoutAddress() {
   const navigate = useNavigate();
@@ -19,59 +19,64 @@ export default function CheckoutAddress() {
   const [submitting, setSubmitting] = useState(false);
 
   const onFinish = async (values) => {
-    if (submitting) return;
-    const billing = values.billing;
-    const shipping = values.sameAsBilling
-      ? values.billing
-      : values.shipping;
+  if (submitting) return;
 
-    // Save to context (for later use)
-    setBillingAddress(billing);
-    setShippingAddress(shipping);
+  const billing = values.billing;
+  const shipping = values.sameAsBilling
+    ? values.billing
+    : values.shipping;
 
-    // Safety checks
-    if (!cartItems || cartItems.length === 0) {
-      message.error("Your cart is empty");
+  setBillingAddress(billing);
+  setShippingAddress(shipping);
+
+  if (!cartItems || cartItems.length === 0) {
+    message.error("Your cart is empty");
+    return;
+  }
+
+  setSubmitting(true);
+
+  const formData = new URLSearchParams();
+
+  // ✅ IMPORTANT: action for backend routing
+  formData.append("action", "customer_details");
+
+  formData.append("billing", JSON.stringify(billing));
+  formData.append("shipping", JSON.stringify(shipping));
+  formData.append("cartItems", JSON.stringify(cartItems));
+  formData.append("totalAmount", totalAmount);
+
+  try {
+    const res = await fetch(GAS_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formData.toString(),
+    });
+
+    const result = await res.json();
+
+    if (!result.success) {
+      message.error(result.error || "Failed to save order");
+      setSubmitting(false);
       return;
     }
 
-        setSubmitting(true);
-
-    //  BACKEND SAVE HAPPENS HERE
-    const formData = new URLSearchParams();
-    formData.append("billing", JSON.stringify(billing));
-    formData.append("shipping", JSON.stringify(shipping));
-    formData.append("cartItems", JSON.stringify(cartItems));
-    formData.append("totalAmount", totalAmount);
-
-    try {
-      const res = await fetch(GAS_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formData.toString(),
+  message.success({
+        content: "Order details saved successfully!",
+        duration: 3,
       });
+    // Navigate only after backend success
+    navigate("/payment");
 
-      const result = await res.json();
+  } catch (err) {
+    console.error(err);
+    message.error("Server error while saving order");
+    setSubmitting(false);
+  }
+};
 
-      if (!result.success) {
-        message.error(result.error || "Failed to save order");
-        setSubmitting(false);
-        return;
-      }
-
-      message.success("Order saved successfully");
-
-      // ✅ Navigate ONLY after backend save
-      navigate("/payment");
-
-    } catch (err) {
-      console.error(err);
-      message.error("Server error while saving order");
-      setSubmitting(false);
-    }
-  };
 
   return (
     <div className="container-fluid m-0 p-0">
