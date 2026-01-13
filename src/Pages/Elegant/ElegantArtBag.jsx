@@ -29,7 +29,7 @@ export default function ElegantArtBag() {
     id: "Bag-006",                 
     productCode: "ElegantArt-Bag-006",
     name: "Elegant Art Bag",
-    price: 1400,
+    price: 600,
     image: ElegantBag,
   };
 
@@ -95,7 +95,7 @@ export default function ElegantArtBag() {
               Product Code: <strong>{product.productCode}</strong>
             </p>
 
-            <h3 className="mt-3">MRP ₹1,400</h3>
+            <h3 className="mt-3">MRP ₹{product.price}</h3>
             <p>Inclusive of all taxes</p>
 
             {/* <div className="bg-dark text-white rounded-pill px-3 py-2 d-inline-block mt-2">

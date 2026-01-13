@@ -5,12 +5,12 @@ import About1 from "../../Images/About1.png";
 import About2 from "../../Images/About2.png";
 import About3 from "../../Images/About3.png";
 import Art3 from "../../Images/Art3.jpg";
-import Design1 from "../../Images/Design1.jpg";
-import Design2 from "../../Images/Design2.jpg";
-import Design3 from "../../Images/Design3.jpg";
-import Design4 from "../../Images/Design4.jpg";
-import Design5 from "../../Images/Design5.jpg";
-import Design6 from "../../Images/Design6.jpg";
+import Design1 from "../../Images/LionArt.jpg";
+import Design2 from "../../Images/GirlArt.jpg";
+import Design3 from "../../Images/FlowingArt.jpg";
+import Design4 from "../../Images/MickeyArt.jpg";
+import Design5 from "../../Images/NatureArt.jpg";
+import Design6 from "../../Images/ElegantArt.jpg";
 import ZeroCost from "../../Images/ZeroCost.png";
 import { Modal, Form, Input, Tag, Button as AntButton, message } from "antd";
 import { InstagramOutlined } from "@ant-design/icons";
@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import "../../App.css";
 import Footer from "../Footer.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 export default function Artists() {
   const navigate = useNavigate();
@@ -41,26 +43,26 @@ export default function Artists() {
         "Sarah specializes in vibrant abstract paintings that explore color theory and emotional expression. Her work has been featured in galleries across Europe and North America.",
       experience: "15 years",
     },
-    {
-      id: 2,
-      name: "Rahul Verma",
-      title: "Digital Artist",
-      image: Design2,
-      tags: ["Digital Art", "Portraits"],
-      description:
-        "Rahul creates stunning digital portraits blending realism with modern aesthetics.",
-      experience: "10 years",
-    },
-    {
-      id: 3,
-      name: "Ananya Patel",
-      title: "Traditional Indian Artist",
-      image: Design3,
-      tags: ["Madhubani", "Warli"],
-      description:
-        "Ananya preserves traditional Indian art forms through intricate hand-painted works.",
-      experience: "12 years",
-    },
+    // {
+    //   id: 2,
+    //   name: "Rahul Verma",
+    //   title: "Digital Artist",
+    //   image: Design2,
+    //   tags: ["Digital Art", "Portraits"],
+    //   description:
+    //     "Rahul creates stunning digital portraits blending realism with modern aesthetics.",
+    //   experience: "10 years",
+    // },
+    // {
+    //   id: 3,
+    //   name: "Ananya Patel",
+    //   title: "Traditional Indian Artist",
+    //   image: Design3,
+    //   tags: ["Madhubani", "Warli"],
+    //   description:
+    //     "Ananya preserves traditional Indian art forms through intricate hand-painted works.",
+    //   experience: "12 years",
+    // },
   ];
 
   const submitArtistDetails = async (values) => {
@@ -87,11 +89,11 @@ export default function Artists() {
       const result = await response.json();
 
       if (result.success) {
-     message.success({
-        content: "Artist details submitted successfully!",
-        duration: 3,
-      });
-            artistForm.resetFields();
+        message.success({
+          content: "Artist details submitted successfully!",
+          duration: 3,
+        });
+        artistForm.resetFields();
         setOpenArtistForm(false);
       } else {
         alert("Error: " + result.error);
@@ -195,7 +197,7 @@ export default function Artists() {
           </div>
 
           {/* CARDS */}
-          <div className="row justify-content-between mt-4">
+          <div className="row justify-content-center mt-4">
             {artistsList.map((artist) => (
               <div key={artist.id} className="col-12 col-lg-4 mb-4">
                 <Card>
@@ -205,8 +207,20 @@ export default function Artists() {
                     alt={artist.name}
                   />
                   <Card.Body>
-                    <h2>{artist.name}</h2>
+<div className="artist-name-row">
+  <h2 className="artist-name">{artist.name}</h2>
 
+  <button
+    className="info-icon-btn"
+    onClick={() => {
+      setSelectedArtist(artist);
+      setOpenArtistDetails(true);
+    }}
+    aria-label="View artist info"
+  >
+    <FontAwesomeIcon icon={faCircleInfo} />
+  </button>
+</div>
                     <Card.Text>
                       {artist.tags.map((tag, index) => (
                         <Tag
@@ -219,15 +233,15 @@ export default function Artists() {
                         </Tag>
                       ))}
                     </Card.Text>
+                  
 
                     <button
-                      className="Selectdesignbutton p-2"
+                      className="Selectdesignbutton p-2 mt-3"
                       onClick={() => {
-                        setSelectedArtist(artist);
-                        setOpenArtistDetails(true);
+                        navigate("/");
                       }}
                     >
-                      View Details
+                      View Artist
                     </button>
                   </Card.Body>
                 </Card>
@@ -236,7 +250,7 @@ export default function Artists() {
           </div>
 
           {/* CARDS */}
-          <div className="row justify-content-between mt-4">
+          {/* <div className="row justify-content-between mt-4">
             {artistsList.map((artist) => (
               <div key={artist.id} className="col-12 col-lg-4 mb-4">
                 <Card>
@@ -274,7 +288,7 @@ export default function Artists() {
                 </Card>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div className="container mt-5">
@@ -446,9 +460,7 @@ export default function Artists() {
                     size="large"
                     loading={submittingArtist}
                     disabled={submittingArtist}
-                      className="artist-submit-btn"
-
-                 
+                    className="artist-submit-btn"
                   >
                     {submittingArtist ? "Submitting..." : "Submit Application"}
                   </AntButton>

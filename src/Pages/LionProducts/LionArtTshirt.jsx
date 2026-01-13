@@ -29,7 +29,7 @@ export default function LionArtTshirt() {
     id: "tshirt-001",                 // internal (React/cart)
     productCode: "LionArt-Tshirt-001", // business tracking (backend)
     name: "Lion Art Pattern Tshirt",
-    price: 1400,
+    price: 600,
     image: LionTshirt,
   };
 
@@ -95,7 +95,7 @@ export default function LionArtTshirt() {
               Product Code: <strong>{product.productCode}</strong>
             </p>
 
-            <h3 className="mt-3">MRP ₹1,400</h3>
+            <h3 className="mt-3">MRP ₹{product.price}</h3>
             <p>Inclusive of all taxes</p>
 
             {/* <div className="bg-dark text-white rounded-pill px-3 py-2 d-inline-block mt-2">

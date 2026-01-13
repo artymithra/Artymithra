@@ -10,6 +10,8 @@ import Tshirt from "../Images/Tshirt.png";
 import Cap from "../Images/Cap.png";
 import Bag from "../Images/Bag.png";
 import Mug from "../Images/Mug.png";
+import Frame from "../Images/CanvasFrame.png";
+import Lamp from "../Images/Lamp.png";
 import Bottle from "../Images/Bottle.png";
 import Offerbanner from "../Images/Offerbanner.jpg";
 import { useNavigate } from "react-router-dom";
@@ -51,13 +53,13 @@ export default function LionArtProducts() {
      
 
         {/* CARDS */}
-        <div className="row justify-content-between mt-4">
+        <div className="row justify-content-center mt-4">
           <div className="col-12 col-lg-4 mb-4">
             <Card className="border border-2 border-mutted">
               <img src={Tshirt} className="img-fluid" alt="Tshirt Image" />
               <Card.Body>
                 <h2>Tshrit</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
+                <Card.Text>Price: Rs.600</Card.Text>
                 <button
                   className="Selectdesignbutton p-2"
                   onClick={() => navigate("/lion-products/tshirt")}
@@ -73,7 +75,7 @@ export default function LionArtProducts() {
               <img src={Bag} className="img-fluid" alt="Bag Image" />
               <Card.Body>
                 <h2>Bag</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
+                <Card.Text>Price: Rs.600</Card.Text>
                 <button
                   className="Selectdesignbutton p-2"
                   onClick={() => navigate("/lion-products/bag")}
@@ -89,10 +91,42 @@ export default function LionArtProducts() {
               <img src={Mug} className="img-fluid" alt="Mug Image" />
               <Card.Body>
                 <h2>Mug</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
+                <Card.Text>Price: Rs.600</Card.Text>
                 <button
                   className="Selectdesignbutton p-2"
                   onClick={() => navigate("/lion-products/mug")}
+                >
+                  Select Product
+                </button>
+              </Card.Body>
+            </Card>
+          </div>
+
+          <div className="col-12 col-lg-4 mb-4">
+            <Card className="border border-2 border-mutted">
+              <img src={Frame} className="img-fluid" alt="Frame Image" />
+              <Card.Body>
+                <h2>Canva Frame</h2>
+                <Card.Text>Price: Rs.1000</Card.Text>
+                <button
+                  className="Selectdesignbutton p-2"
+                  onClick={() => navigate("/lion-products/frame")}
+                >
+                  Select Product
+                </button>
+              </Card.Body>
+            </Card>
+          </div>
+
+              <div className="col-12 col-lg-4 mb-4">
+            <Card className="border border-2 border-mutted">
+              <img src={Lamp} className="img-fluid" alt="Lamp Image" />
+              <Card.Body>
+                <h2>Lamp</h2>
+                <Card.Text>Price: Rs.200</Card.Text>
+                <button
+                  className="Selectdesignbutton p-2"
+                  onClick={() => navigate("/lion-products/lamp")}
                 >
                   Select Product
                 </button>

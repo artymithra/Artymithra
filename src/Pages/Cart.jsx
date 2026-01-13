@@ -69,7 +69,9 @@ export default function Cart() {
                 <span>Total</span>
                 <strong>₹{totalAmount}</strong>
               </p>
-
+                <p className="d-flex justify-content-between">
+                <strong>Shipping charges extra</strong>
+              </p>
               {/* ✅ CHECKOUT LOGIC */}
               <button
                 className="btn btn-warning w-100 mt-3"

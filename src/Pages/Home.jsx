@@ -5,12 +5,20 @@ import About1 from "../Images/About1.png";
 import About2 from "../Images/About2.png";
 import About3 from "../Images/About3.png";
 import Art3 from "../Images/Art3.jpg";
-import Design1 from "../Images/Design1.jpg";
-import Design2 from "../Images/Design2.jpg";
-import Design3 from "../Images/Design3.jpg";
-import Design4 from "../Images/Design4.jpg";
-import Design5 from "../Images/Design5.jpg";
-import Design6 from "../Images/Design6.jpg";
+import Design1 from "../Images/LionArt.jpg";
+import Design2 from "../Images/GirlArt.jpg";
+import Design3 from "../Images/FlowingArt.jpg";
+import Design4 from "../Images/MickeyArt.jpg";
+import Design5 from "../Images/NatureArt.jpg";
+import Design6 from "../Images/ElegantArt.jpg";
+import Design7 from "../Images/RamarArt.jpg";
+import Design8 from "../Images/PillaiyarArt.jpg";
+import Design9 from "../Images/KrishnarArt.jpg";
+import Design10 from "../Images/KantaraArt.jpg";
+import Design11 from "../Images/RutuArt.jpg";
+import Design12 from "../Images/GirlInRainArt.jpg";
+
+
 import { Modal, Form, Input, Tag, Button as AntButton, message } from "antd";
 import { InstagramOutlined } from "@ant-design/icons";
 
@@ -108,16 +116,16 @@ export default function Home() {
                 <div className="row">
                   <div className="col-12">
                     <p className="Homebannertext1">
-                      Artimitra, the commercial friend of every artist
+                      The commercial friend of every artist
                     </p>
-                    <p className="Homebannertext2">
+                    {/* <p className="Homebannertext2">
                       Explore our unique collection of digital art created by
                       talented artists worldwide.
-                    </p>
+                    </p> */}
                   </div>
 
                   {/* BUTTONS */}
-                  <div className="col-12 d-lg-flex mt-4">
+                  {/* <div className="col-12 d-lg-flex mt-4">
                     <div className="col-12 col-lg-6 d-flex justify-content-center">
                       <button className="Learnmorebutton p-1">
                         Learn More
@@ -127,7 +135,7 @@ export default function Home() {
                     <div className="col-12 col-lg-6 d-flex justify-content-center mt-4 mt-lg-0">
                       <button className="Artbutton p-2">Add Art</button>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* OWN DESIGN SECTION */}
                   {/* <div className="col-11 Owndesignsection mt-4 p-3 p-lg-5">
@@ -189,13 +197,13 @@ export default function Home() {
                 <img src={Design1} className="img-fluid" alt="Art 3 Image" />
                 <Card.Body>
                   <h2>Lion Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
+                  <Card.Text>Starting at Rs.600</Card.Text>
                   <button
                     className="Selectdesignbutton p-2"
                     onClick={() => navigate("/lion-products")}
                   >
                     {" "}
-                    Select Product
+                    Select Art
                   </button>
                 </Card.Body>
               </Card>
@@ -206,12 +214,12 @@ export default function Home() {
                 <img src={Design2} className="img-fluid" alt="Art 3 Image" />
                 <Card.Body>
                   <h2>Girl Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
+                  <Card.Text>Starting at Rs.600</Card.Text>
                   <button
                     className="Selectdesignbutton p-2"
                     onClick={() => navigate("/girl-products")}
                   >
-                    Select Product
+                    Select Art
                   </button>
                 </Card.Body>
               </Card>
@@ -222,12 +230,12 @@ export default function Home() {
                 <img src={Design3} className="img-fluid" alt="Art 3 Image" />
                 <Card.Body>
                   <h2>Flowing Doodles Art </h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
+                  <Card.Text>Starting at Rs.600</Card.Text>
                   <button
                     className="Selectdesignbutton p-2"
                     onClick={() => navigate("/flowing-products")}
                   >
-                    Select Product
+                    Select Art
                   </button>
                 </Card.Body>
               </Card>
@@ -241,12 +249,12 @@ export default function Home() {
                 <img src={Design4} className="img-fluid" alt="Art 3 Image" />
                 <Card.Body>
                   <h2>Mickey Mouse Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
+                  <Card.Text>Starting at Rs.600</Card.Text>
                   <button
                     className="Selectdesignbutton p-2"
                     onClick={() => navigate("/mickeyMouse-products")}
                   >
-                    Select Product
+                    Select Art
                   </button>
                 </Card.Body>
               </Card>
@@ -257,12 +265,12 @@ export default function Home() {
                 <img src={Design5} className="img-fluid" alt="Art 3 Image" />
                 <Card.Body>
                   <h2>Nature Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
+                  <Card.Text>Starting at Rs.600</Card.Text>
                   <button
                     className="Selectdesignbutton p-2"
                     onClick={() => navigate("/nature-products")}
                   >
-                    Select Product
+                    Select Art
                   </button>
                 </Card.Body>
               </Card>
@@ -273,12 +281,109 @@ export default function Home() {
                 <img src={Design6} className="img-fluid" alt="Art 3 Image" />
                 <Card.Body>
                   <h2>Elegant Art</h2>
-                  <Card.Text>Price: Rs.3000</Card.Text>
+                  <Card.Text>Starting at Rs.600</Card.Text>
                   <button
                     className="Selectdesignbutton p-2"
                     onClick={() => navigate("/elegant-products")}
                   >
-                    Select Product
+                    Select Art
+                  </button>
+                </Card.Body>
+              </Card>
+            </div>
+
+            <div className="col-12 col-lg-4 mb-4">
+              <Card>
+                <img src={Design7} className="img-fluid" alt="Art 3 Image" />
+                <Card.Body>
+                  <h2>Ramar Art</h2>
+                  <Card.Text>Starting at Rs.600</Card.Text>
+                  <button
+                    className="Selectdesignbutton p-2"
+                    onClick={() => navigate("/ramar-products")}
+                  >
+                    Select Art
+                  </button>
+                </Card.Body>
+              </Card>
+            </div>
+
+            <div className="col-12 col-lg-4 mb-4">
+              <Card>
+                <img src={Design8} className="img-fluid" alt="Art 3 Image" />
+                <Card.Body>
+                  <h2>Pillaiyar Art</h2>
+                  <Card.Text>Starting at Rs.600</Card.Text>
+                  <button
+                    className="Selectdesignbutton p-2"
+                    onClick={() => navigate("/pillaiyar-products")}
+                  >
+                    Select Art
+                  </button>
+                </Card.Body>
+              </Card>
+            </div>
+
+            <div className="col-12 col-lg-4 mb-4">
+              <Card>
+                <img src={Design9} className="img-fluid" alt="Art 3 Image" />
+                <Card.Body>
+                  <h2>Krishnar Art</h2>
+                  <Card.Text>Starting at Rs.600</Card.Text>
+                  <button
+                    className="Selectdesignbutton p-2"
+                    onClick={() => navigate("/krishnar-products")}
+                  >
+                    Select Art
+                  </button>
+                </Card.Body>
+              </Card>
+            </div>
+
+            <div className="col-12 col-lg-4 mb-4">
+              <Card>
+                <img src={Design10} className="img-fluid" alt="Art 3 Image" />
+                <Card.Body>
+                  <h2>Kantara Art</h2>
+                  <Card.Text>Starting at Rs.600</Card.Text>
+                  <button
+                    className="Selectdesignbutton p-2"
+                    onClick={() => navigate("/kantara-products")}
+                  >
+                    Select Art
+                  </button>
+                </Card.Body>
+              </Card>
+            </div>
+
+            <div className="col-12 col-lg-4 mb-4">
+              <Card>
+                <img src={Design11} className="img-fluid" alt="Art 3 Image" />
+                <Card.Body>
+                  <h2>Ruturaj Art</h2>
+                  <Card.Text>Starting at Rs.600</Card.Text>
+                  <button
+                    className="Selectdesignbutton p-2"
+                    onClick={() => navigate("/ruturaj-products")}
+                  >
+                    Select Art
+                  </button>
+                </Card.Body>
+              </Card>
+            </div>
+
+            
+            <div className="col-12 col-lg-4 mb-4">
+              <Card>
+                <img src={Design12} className="img-fluid" alt="Art 3 Image" />
+                <Card.Body>
+                  <h2>Girl In Rain Art</h2>
+                  <Card.Text>Starting at Rs.600</Card.Text>
+                  <button
+                    className="Selectdesignbutton p-2"
+                    onClick={() => navigate("/girlInRain-products")}
+                  >
+                    Select Art
                   </button>
                 </Card.Body>
               </Card>
@@ -451,8 +556,7 @@ export default function Home() {
                     type="primary"
                     htmlType="submit"
                     loading={submittingArtist}
-                                        disabled={submittingArtist}
-
+                    disabled={submittingArtist}
                     block
                     size="large"
                     className="artist-submit-btn"

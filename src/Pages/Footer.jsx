@@ -9,9 +9,7 @@ export default function Footer() {
     <div className="container-fluid  Homebannerbgcolor  rounded-top-5 mt-5 pt-5">
       <div className="row p-5">
         <div className="col-12 col-lg-3 Footertextcolor">
-          <p>
-            ArtyMithra - A platform for your all art needs. Stunning art works and elegant products with art work designs available.
-          </p>
+          <p>The commercial friend of every artist</p>
         </div>
 
         <div className="col-12 col-lg-3 Footertextcolor  d-flex flex-column align-items-lg-center">

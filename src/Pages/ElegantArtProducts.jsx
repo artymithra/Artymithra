@@ -7,6 +7,7 @@ import About3 from "../Images/About3.png";
 import Art3 from "../Images/Art3.jpg";
 import CoffeeCup from "../Images/Coffeecup.png";
 import Tshirt from "../Images/Tshirt.png";
+import Frame from "../Images/CanvasFrame.png";
 import Cap from "../Images/Cap.png";
 import Bag from "../Images/Bag.png";
 import Mug from "../Images/Mug.png";
@@ -17,6 +18,7 @@ import Card from "react-bootstrap/Card";
 import "../App.css";
 import Footer from "./Footer";
 import AppBreadcrumbs from "./AppBreadcrumbs";
+import Lamp from "../Images/Lamp.png";
 
 export default function NatureArtProducts() {
   const navigate = useNavigate();
@@ -28,11 +30,7 @@ export default function NatureArtProducts() {
       <div className="container-fluid bg-light">
         <div className="row">
           <div className="col-12 text-lg-center">
-            <img
-              src={Offerbanner}
-              className="img-fluid "
-              alt="Offer Banner"
-            />
+            <img src={Offerbanner} className="img-fluid " alt="Offer Banner" />
           </div>{" "}
         </div>
       </div>
@@ -47,16 +45,14 @@ export default function NatureArtProducts() {
           </div>
         </div>
 
-   
-
         {/* CARDS */}
-        <div className="row justify-content-between mt-4">
+        <div className="row justify-content-center mt-4">
           <div className="col-12 col-lg-4 mb-4">
             <Card className="border border-2 border-mutted">
               <img src={Tshirt} className="img-fluid" alt="Tshirt Image" />
               <Card.Body>
                 <h2>Tshrit</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
+                <Card.Text>Price: Rs.600</Card.Text>
                 <button
                   className="Selectdesignbutton p-2"
                   onClick={() => navigate("/elegant-products/tshirt")}
@@ -72,7 +68,7 @@ export default function NatureArtProducts() {
               <img src={Bag} className="img-fluid" alt="Bag Image" />
               <Card.Body>
                 <h2>Bag</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
+                <Card.Text>Price: Rs.600</Card.Text>
                 <button
                   className="Selectdesignbutton p-2"
                   onClick={() => navigate("/elegant-products/bag")}
@@ -88,10 +84,42 @@ export default function NatureArtProducts() {
               <img src={Mug} className="img-fluid" alt="Mug Image" />
               <Card.Body>
                 <h2>Mug</h2>
-                <Card.Text>Price: Rs.3000</Card.Text>
+                <Card.Text>Price: Rs.600</Card.Text>
                 <button
                   className="Selectdesignbutton p-2"
                   onClick={() => navigate("/elegant-products/mug")}
+                >
+                  Select Product
+                </button>
+              </Card.Body>
+            </Card>
+          </div>
+
+          <div className="col-12 col-lg-4 mb-4">
+            <Card className="border border-2 border-mutted">
+              <img src={Frame} className="img-fluid" alt="Frame Image" />
+              <Card.Body>
+                <h2>Canva Frame</h2>
+                <Card.Text>Price: Rs.1000</Card.Text>
+                <button
+                  className="Selectdesignbutton p-2"
+                  onClick={() => navigate("/elegant-products/frame")}
+                >
+                  Select Product
+                </button>
+              </Card.Body>
+            </Card>
+          </div>
+
+          <div className="col-12 col-lg-4 mb-4">
+            <Card className="border border-2 border-mutted">
+              <img src={Lamp} className="img-fluid" alt="Lamp Image" />
+              <Card.Body>
+                <h2>Lamp</h2>
+                <Card.Text>Price: Rs.200</Card.Text>
+                <button
+                  className="Selectdesignbutton p-2"
+                  onClick={() => navigate("/elegant-products/lamp")}
                 >
                   Select Product
                 </button>
